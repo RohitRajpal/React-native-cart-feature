@@ -17,7 +17,7 @@ import CustomDropDown from '../module/CustomDropDown'
 const Home = () => {
   const [productsList, setProdctLists] = useState(Products.data)
 
-  const [showModal, setShowModalPicker] = useState(true)
+  const [showModal, setShowModalPicker] = useState(false)
 
   const dispatch = useDispatch()
   const addItemToCart = item => dispatch(addItem(item))
