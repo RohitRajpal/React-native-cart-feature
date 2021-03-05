@@ -2,7 +2,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { images } from '../assets/Images';
 
+import { Image } from 'react-native'
 import React from 'react'
 import Details from '../component/Details'
 import Home from '../component/Home'
@@ -46,9 +48,9 @@ function TabNavigator(params) {
         activeTintColor: '#000',
         inactiveTintColor: 'gray',
         labelStyle: {
-          fontSize: 20,
+          fontSize: 16,
           margin: 0,
-          padding: 5,
+          paddingBottom: 2,
         },
 
       }}
@@ -59,14 +61,18 @@ function TabNavigator(params) {
         options={{
 
           title: 'Products',
-          
+          tabBarIcon: ({ navigation }) => (<Image source={images.list} 
+            style={{ height: 20, width: 20 }} />)
+
+
         }}
       />
       <Tab.Screen name='Details' component={Details}
         options={{
           title: 'Cart',
 
-          
+          tabBarIcon: ({ navigation }) => (<Image source={images.cart} 
+            style={{ height: 20, width: 20 }} />)
         }}
       />
 
