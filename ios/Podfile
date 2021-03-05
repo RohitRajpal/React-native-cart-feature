@@ -1,0 +1,30 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+
+target 'Delm8' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  target 'Delm8Tests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+
+end
+
+target 'Delm8-tvOS' do
+  # Pods for Delm8-tvOS
+
+  target 'Delm8-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
