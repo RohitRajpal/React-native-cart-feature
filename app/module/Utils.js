@@ -1,5 +1,10 @@
-export const Products  = {
- data:[
+export const sortBy = {
+  sortBy: [{ "id": 0, "value": "Price Ascending" }, { "id": 1, "value": "Price Descending" }]
+
+}
+
+export const Products = {
+  data: [
     {
       "id": 1,
       "productname": "Product 1",
@@ -63,5 +68,5 @@ export const Products  = {
       "phoneNumber": "+919999999997",
       "imgUrl": "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
 
-    }]   
+    }]
 };

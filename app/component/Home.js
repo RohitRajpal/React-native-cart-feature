@@ -9,20 +9,39 @@ import { useDispatch } from 'react-redux'
 import { addItem, deleteItem } from '../redux/action/ProductActions'
 import { width, height } from '../module/Scale';
 import { Colors } from '../module/Color';
-import { Products } from '../module/Utils';
+import { Products, sortBy } from '../module/Utils';
 
+import CustomDropDown from '../module/CustomDropDown'
 
 
 const Home = () => {
-  const [productsList, setNotes] = useState(Products.data)
+  const [productsList, setProdctLists] = useState(Products.data)
+
+  const [showModal, setShowModalPicker] = useState(true)
 
   const dispatch = useDispatch()
   const addItemToCart = item => dispatch(addItem(item))
 
+  const sortAscending = () => productsList.sort(function (a, b) {
+    return a.price - b.price;
+
+  });
+
+  const sortDescending = () => productsList.sort(function (a, b) {
+    return b.price - a.price;
+
+  });
 
   return (
 
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          setShowModalPicker(!showModal)
+        }}
+      >
+        <Text style={styles.sortText}> Sort By</Text>
+      </TouchableOpacity>
       {productsList.length === 0 ? (
         <View style={styles.titleContainer}>
           <Text style={styles.title}>You do not have any products</Text>
@@ -60,7 +79,20 @@ const Home = () => {
           />
         )}
 
+      <CustomDropDown
+        showModal={showModal}
+        title={"Sort By"}
+        listData={sortBy.sortBy.map((country) => `
+         ${country.value}   `)}
+        onSelectOption={(item, index) => {
+          // alert(index)
+          if (index == 0)
+            setProdctLists(sortAscending())
+          else setProdctLists(sortDescending())
 
+        }}
+        close={() => setShowModalPicker(false)}
+      />
     </View>
   )
 }
@@ -80,6 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1
   },
+  sortText: { textAlign: 'right', right: 20 },
   title: {
     fontSize: 20
   },
