@@ -38,7 +38,7 @@ function Details({ }) {
           </View>
         ) : (
             <FlatList
-              key={2}
+              // key={2}
               data={cartItemsArray}
               renderItem={({ item }) => (
                 <View style={styles.cardView}>
@@ -54,7 +54,7 @@ function Details({ }) {
                         <Text style={styles.textvendorname}>{item.item.vendorname}</Text>
                         <Text style={styles.txtVendoraddress}> {item.item.vendoraddress}</Text>
                       </View>
-                      <Text style={styles.textPrice}>Price: {item.item.price}</Text>
+                      <Text style={styles.textPrice}> Price {'\n'} {item.item.price}</Text>
 
                     </View>
                     <View style={styles.buttonContainer}>
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
   }
   ,
   buttonContainer: {
+paddingBottom:10,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
     elevation: 8,
     backgroundColor: Colors.buttontextColor,
     width: width * 0.95,
-    height:height*0.20,
+    // height:height*0.20,
     borderRadius: 15,
   },
 })

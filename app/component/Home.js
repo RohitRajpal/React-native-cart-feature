@@ -5,7 +5,7 @@ import {
   FlatList,
   StyleSheet, Image, TouchableOpacity
 } from 'react-native'
-import {  useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addItem, deleteItem } from '../redux/action/ProductActions'
 import { width, height } from '../module/Scale';
 import { Colors } from '../module/Color';
@@ -13,7 +13,7 @@ import { Products } from '../module/Utils';
 
 
 
-Home = ({ navigation }) => {
+const Home = () => {
   const [productsList, setNotes] = useState(Products.data)
 
   const dispatch = useDispatch()
@@ -46,7 +46,7 @@ Home = ({ navigation }) => {
                   <View style={styles.buttonContainer}>
                     <TouchableOpacity
                       onPress={() => {
-                  
+
                         addItemToCart(item)
                       }}
                       style={styles.button}>

@@ -1,11 +1,12 @@
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { Image, StyleSheet } from 'react-native'
 import { images } from '../assets/Images';
 
-import { Image } from 'react-native'
-import React from 'react'
+import { Colors } from '../module/Color';
 import Details from '../component/Details'
 import Home from '../component/Home'
 
@@ -21,8 +22,9 @@ function App_RespectiveNavigator() {
 
         <Stack.Navigator
           screenOptions={{
-            headerShown: true
-            , headerTitleAlign: 'center',
+            headerShown: true,
+            headerStyle: { backgroundColor: Colors.cardShadow },
+            headerTitleAlign: 'center',
             headerTitle: 'Shop'
           }}
         >
@@ -43,10 +45,10 @@ function TabNavigator(params) {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeBackgroundColor: '#bebebe',
-        inactiveBackgroundColor: '#fff',
-        activeTintColor: '#000',
-        inactiveTintColor: 'gray',
+        activeBackgroundColor: Colors.activeBackgroundColor,
+        inactiveBackgroundColor: Colors.inactiveBackgroundColor,
+        activeTintColor: Colors.activeTintColor,
+        inactiveTintColor: Colors.inactiveTintColor,
         labelStyle: {
           fontSize: 16,
           margin: 0,
@@ -61,8 +63,8 @@ function TabNavigator(params) {
         options={{
 
           title: 'Products',
-          tabBarIcon: ({ navigation }) => (<Image source={images.list} 
-            style={{ height: 20, width: 20 }} />)
+          tabBarIcon: ({ navigation }) => (<Image source={images.list}
+            style={styles.icon} />)
 
 
         }}
@@ -71,15 +73,20 @@ function TabNavigator(params) {
         options={{
           title: 'Cart',
 
-          tabBarIcon: ({ navigation }) => (<Image source={images.cart} 
-            style={{ height: 20, width: 20 }} />)
+          tabBarIcon: ({ navigation }) => (<Image source={images.cart}
+            style={styles.icon} />)
         }}
       />
 
     </Tab.Navigator>
   )
 }
+const styles = StyleSheet.create({
 
+  icon:
+    { height: 20, width: 20 }
+
+})
 
 
 export default App_RespectiveNavigator

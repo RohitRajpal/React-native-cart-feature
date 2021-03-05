@@ -6,5 +6,9 @@ export const Colors  = {
     buttontextColor:"#ffffff",
     buttonBgColor:"#FF2E54",
     backGroundColor:'#24a0ed',
-    cardShadow:'#CCCCCC'
+    cardShadow:'#CCCCCC',
+    activeBackgroundColor: '#bebebe',
+    inactiveBackgroundColor: '#fff',
+    activeTintColor: '#000',
+    inactiveTintColor: 'gray',
 };
