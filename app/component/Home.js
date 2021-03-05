@@ -137,6 +137,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: Colors.buttontextColor,
     width: width * 0.43,
-    borderRadius: 15,
+    borderRadius: 10,
   },
 })

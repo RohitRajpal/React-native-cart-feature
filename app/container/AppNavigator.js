@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import React from 'react'
@@ -49,7 +48,7 @@ function TabNavigator(params) {
         labelStyle: {
           fontSize: 20,
           margin: 0,
-          padding: 0,
+          padding: 5,
         },
 
       }}
